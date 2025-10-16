@@ -1,61 +1,215 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🩺 Med.IA - Sistema de Diagnóstico Médico Assistido por IA
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Med.IA](https://img.shields.io/badge/Med-IA-blue) ![Laravel](https://img.shields.io/badge/Laravel-10.x-red) ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange) ![AI-Powered](https://img.shields.io/badge/AI--Powered-DeepSeek-green)
 
-## About Laravel
+Sistema inteligente de apoio ao diagnóstico médico que combina banco de dados especializado com inteligência artificial para fornecer diagnósticos preliminares precisos e rápidos.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## ✨ Funcionalidades Principais
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **🤖 Diagnóstico Híbrido**: Combina banco de dados médico local com IA (DeepSeek API)
+- **💾 Base de Conhecimento Crescente**: Aprende e armazena novos diagnósticos automaticamente
+- **⚡ Performance Otimizada**: Busca local primeiro, API apenas para refinamento
+- **🎯 Interface Intuitiva**: Design moderno e responsivo com Tailwind CSS
+- **📊 Resultados Detalhados**: Diagnóstico, gravidade, medicamentos, exames e recomendações
+- **🔒 Segurança Médica**: Sempre recomenda consulta presencial como follow-up
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠️ Tecnologias Utilizadas
 
-## Learning Laravel
+- **Backend**: Laravel 10.x
+- **Frontend**: Tailwind CSS, Blade Templates
+- **Banco de Dados**: MySQL 8.0
+- **IA**: DeepSeek API
+- **Autenticação**: Laravel Breeze (opcional)
+- **Deploy**: Compatível com Laravel Forge/Vapor
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 📋 Pré-requisitos
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP 8.1+
+- Composer
+- MySQL 8.0+
+- Node.js & NPM
+- Conta na [DeepSeek API](https://platform.deepseek.com/) (opcional)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Instalação Rápida
 
-## Laravel Sponsors
+### 1. Clone o repositório
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+git clone https://github.com/seu-usuario/med-ia.git
+cd med-ia
+```
 
-### Premium Partners
+### 2. Instale as dependências PHP
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+composer install
+```
 
-## Contributing
+### 3. Instale as dependências Frontend
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+npm install && npm run build
+```
 
-## Code of Conduct
+### 4. Configure o ambiente
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+### 5. Configure o banco de dados
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Edite o arquivo `.env`:
 
-## License
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=med_ia
+DB_USERNAME=seu_usuario
+DB_PASSWORD=sua_senha
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Opcional: DeepSeek API
+DEEPSEEK_API_KEY=sua_chave_aqui
+```
+
+### 6. Execute as migrations e seeders
+
+```bash
+php artisan migrate
+php artisan db:seed --class=DiagnosticosSeeder
+```
+
+### 7. Inicie o servidor
+
+```bash
+php artisan serve
+```
+
+Acesse: `http://localhost:8000`
+
+## 🎯 Como Usar
+
+### Diagnóstico Básico (Sem API)
+
+1. Acesse a página de consulta
+2. Descreva os sintomas do paciente
+3. Receba diagnóstico baseado no banco de dados local
+4. Visualize resultados detalhados com tratamentos sugeridos
+
+### Diagnóstico com IA (Recomendado)
+
+1. Registre-se na [DeepSeek API](https://platform.deepseek.com/)
+2. Adicione sua chave no `.env`
+3. O sistema irá refinar diagnósticos automaticamente
+
+## 🗂️ Estrutura do Projeto
+
+```
+med-ia/
+├── app/
+│   ├── Models/
+│   │   └── Diagnostico.php
+│   ├── Http/
+│   │   └── Controllers/
+│   │       └── DiagnosticoController.php
+│   └── Providers/
+├── database/
+│   ├── migrations/
+│   │   └── create_diagnosticos_table.php
+│   └── seeders/
+│       └── DiagnosticosSeeder.php
+├── resources/
+│   ├── views/
+│   │   ├── consulta.blade.php
+│   │   └── resultado.blade.php
+│   └── css/
+├── routes/
+│   └── web.php
+└── config/
+```
+
+## 🔧 Comandos Úteis
+
+```bash
+# Popular banco com dados médicos
+php artisan db:seed --class=DiagnosticosSeeder
+
+# Limpar cache
+php artisan config:clear
+php artisan cache:clear
+
+# Criar novo diagnóstico manualmente
+php artisan tinker
+>>> App\Models\Diagnostico::create([...])
+```
+
+## 🧪 Dados de Exemplo Incluídos
+
+O seeder inclui diagnósticos para:
+
+- ✅ Dengue Clássica
+- ✅ Virose Comum
+- ✅ Faringite Aguda
+- ✅ Amigdalite
+- ✅ Gastroenterite
+
+## 🔐 Variáveis de Ambiente
+
+| Variável            | Descrição           | Obrigatório              |
+| -------------------- | --------------------- | ------------------------- |
+| `DEEPSEEK_API_KEY` | Chave da API DeepSeek | Não                      |
+| `DB_CONNECTION`    | Tipo de banco (mysql) | Sim                       |
+| `DB_DATABASE`      | Nome do banco         | Sim                       |
+| `APP_DEBUG`        | Modo debug            | Sim (false em produção) |
+
+## 🤝 Contribuindo
+
+1. Fork o projeto
+2. Crie uma branch: `git checkout -b feature/nova-funcionalidade`
+3. Commit suas mudanças: `git commit -m 'Adiciona nova funcionalidade'`
+4. Push para a branch: `git push origin feature/nova-funcionalidade`
+5. Abra um Pull Request
+
+### Áreas para Contribuição
+
+- 📚 Expansão da base de dados médica
+- 🎨 Melhorias na interface
+- 🔍 Algoritmos de busca semântica
+- 🌐 Traduções para outros idiomas
+
+## ⚠️ Aviso Legal
+
+**Este sistema é apenas para apoio diagnóstico e não substitui a consulta médica profissional.**
+
+- Todos os diagnósticos são preliminares
+- Sempre recomende consulta presencial
+- Mantenha sigilo dos dados dos pacientes
+- Use conforme regulamentações médicas locais
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## 🆘 Suporte
+
+Encontrou problemas?
+
+1. Verifique as [Issues](https://github.com/seu-usuario/med-ia/issues)
+2. Crie uma nova issue com detalhes do problema
+3. Entre em contato: seu-email@dominio.com
+
+## 🚀 Próximas Atualizações
+
+- [ ] Integração com mais APIs de IA
+- [ ] Busca semântica com embeddings
+- [ ] App mobile
+- [ ] Multi-idioma
+- [ ] Dashboard administrativo
+
+---
+
+**Desenvolvido com ❤️ para a comunidade médica**
+
+*"Tecnologia a serviço da saúde"* 🩺⚡
